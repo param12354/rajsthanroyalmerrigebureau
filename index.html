@@ -1,472 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rajasthan Royal Hindu Marriage Bureau</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --gold:#d4af37;
-  --bg:#07090d;
-  --text:#e8e8e8;
-}
-
+:root{--gold:#d4af37;--dark:#05070b}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-body{
-  font-family:'Poppins',sans-serif;
-  color:var(--text);
-  overflow-x:hidden;
-  background:#07090d;
-}
+body{font-family:'Poppins',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
 
-/* ================= ULTRA LUXURY ANIMATED BACKGROUND ================= */
-#luxBg{
-  position:fixed;
-  inset:0;
-  z-index:-5;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,215,0,.35), transparent 45%),
-    radial-gradient(circle at 80% 25%, rgba(120,160,255,.25), transparent 45%),
-    radial-gradient(circle at 50% 85%, rgba(255,120,180,.25), transparent 45%),
-    linear-gradient(-45deg,#06080c,#0b1220,#111827,#06080c);
-  background-size: 250% 250%, 250% 250%, 250% 250%, 500% 500%;
-  animation:luxMove 14s ease-in-out infinite, bgPulse 6s ease-in-out infinite;
-}
+/* ===== ULTRA BACKGROUND ===== */
+#luxBg{position:fixed;inset:0;z-index:-10;background:
+radial-gradient(circle at 20% 30%, rgba(255,215,0,.35), transparent 50%),
+radial-gradient(circle at 80% 20%, rgba(0,200,255,.25), transparent 50%),
+radial-gradient(circle at 50% 90%, rgba(255,0,150,.25), transparent 50%),
+linear-gradient(-45deg,#05070b,#0b1220,#111827,#05070b);
+background-size:300% 300%,300% 300%,300% 300%,600% 600%;
+animation:luxMove 18s ease-in-out infinite}
+@keyframes luxMove{0%{background-position:0% 50%,100% 50%,50% 100%,0% 50%}50%{background-position:100% 50%,0% 50%,50% 0%,100% 50%}100%{background-position:0% 50%,100% 50%,50% 100%,0% 50%}}
 
-@keyframes bgPulse{
-  0%,100%{filter:brightness(1)}
-  50%{filter:brightness(1.15)}
-}
+/* ===== PARTICLES ===== */
+#particles{position:fixed;inset:0;z-index:-9;pointer-events:none}
+.particle{position:absolute;width:5px;height:5px;background:var(--gold);border-radius:50%;opacity:.8;animation:floatUp linear infinite}
+@keyframes floatUp{from{transform:translateY(110vh)}to{transform:translateY(-10vh)}}
 
-@keyframes luxMove{
-  0%{background-position:0% 50%, 100% 50%, 50% 100%, 0% 50%}
-  50%{background-position:100% 50%, 0% 50%, 50% 0%, 100% 50%}
-  100%{background-position:0% 50%, 100% 50%, 50% 100%, 0% 50%}
-}
+.nav{position:sticky;top:0;background:rgba(0,0,0,.6);backdrop-filter:blur(15px);padding:18px;text-align:center;font-weight:800;font-size:24px;color:var(--gold);box-shadow:0 10px 40px rgba(0,0,0,.6)}
 
-/* ================= GOLD PARTICLES ================= */
-#particles{
-  position:fixed;
-  inset:0;
-  z-index:-4;
-  overflow:hidden;
-  pointer-events:none;
-}
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat}
 
-.particle{
-  position:absolute;
-  width:6px;height:6px;
-  background:var(--gold);
-  border-radius:50%;
-  opacity:.85;
-  filter:blur(.3px);
-  animation:floatUp linear infinite;
-}
+#typingText{font-size:68px;font-weight:800;border-right:3px solid var(--gold);white-space:nowrap;overflow:hidden;display:inline-block;text-shadow:0 0 15px var(--gold),0 0 40px rgba(212,175,55,.7),0 0 80px rgba(212,175,55,.4);animation:floatText 4s ease-in-out infinite}
+@keyframes floatText{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-@keyframes floatUp{
-  from{transform:translateY(110vh) scale(.7);opacity:0}
-  10%{opacity:1}
-  to{transform:translateY(-15vh) scale(1.2);opacity:0}
-}
+.hero p{margin-top:18px;font-size:19px;opacity:.9}
 
-/* ================= NAV ================= */
-.nav{
-  position:sticky;top:0;z-index:999;
-  background:rgba(0,0,0,.45);
-  backdrop-filter:blur(18px);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 22px;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.logo{
-  font-weight:700;font-size:20px;
-  background:linear-gradient(45deg,#fff,var(--gold));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
+.btn{display:inline-block;margin-top:28px;background:linear-gradient(45deg,var(--gold),#b8962e);color:#000;padding:14px 34px;border-radius:16px;font-weight:700;text-decoration:none;box-shadow:0 20px 60px rgba(212,175,55,.5);animation:pulseBtn 3s infinite;cursor:pointer;border:none}
+@keyframes pulseBtn{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 
-/* ================= HERO ================= */
-.hero{
-  min-height:88vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px 20px;
-  position:relative;
-  /* ===== STRONG VISIBLE HERO BACKGROUND ===== */
-  background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-}
+section{max-width:1500px;margin:auto;padding:120px 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
 
+.card{background:rgba(20,25,35,.9);border-radius:20px;padding:14px;text-align:center;border:1px solid rgba(255,255,255,.06);transition:.35s}
+.card:hover{transform:translateY(-10px) scale(1.04);box-shadow:0 40px 100px rgba(0,0,0,.8)}
+.card img{width:100%;height:150px;object-fit:cover;border-radius:12px;margin-bottom:6px}
+.profile-avatar{width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin:auto;margin-bottom:6px;box-shadow:0 0 15px rgba(212,175,55,.6)}
+.phone{font-size:13px;color:#ffd166;margin-top:4px}
 
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-  opacity:.9;
-  z-index:-1;
-  filter:none;
-}
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+#paymentSection{display:none;margin-top:40px;text-align:center}
+.qr-box{background:#111;padding:22px;border-radius:18px;display:inline-block;animation:floatText 4s ease-in-out infinite}
+.qr-box img{width:200px}
+.plan-title{font-size:26px;color:var(--gold)}
 
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.12)}
-}
+.load-more{margin-top:40px;text-align:center}
 
-/* ================= SUPER GLOW TEXT ================= */
-#typingText{
-  font-size:56px;
-  font-weight:800;
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-#typingText span{
-  display:inline-block;
-  animation:floatWord 3s ease-in-out infinite, pulseGlow 2.8s ease-in-out infinite;
-}
-
-/* ===== GLOBAL GLOW FOR ALL TEXT ===== */
-h1,h2,h3,strong{
-  text-shadow:
-    0 0 6px rgba(255,255,255,.25),
-    0 0 18px rgba(212,175,55,.45);
-}
-
-/* stronger paragraph glow (soft) */
-p, .tag{
-  text-shadow:0 0 6px rgba(255,255,255,.12);
-}
-
-@keyframes pulseGlow{
-  0%,100%{filter:brightness(1)}
-  50%{filter:brightness(1.25)}
-}
-
-.w1{
-  color:#ff4d6d !important;
-  text-shadow:
-    0 0 14px #ff4d6d,
-    0 0 36px rgba(255,77,109,.95),
-    0 0 70px rgba(255,77,109,.85);
-}
-.w2{
-  color:#ffd166 !important;
-  text-shadow:
-    0 0 14px #ffd166,
-    0 0 36px rgba(255,209,102,.95),
-    0 0 70px rgba(255,209,102,.85);
-}
-.w3{
-  color:#4cc9f0 !important;
-  text-shadow:
-    0 0 14px #4cc9f0,
-    0 0 36px rgba(76,201,240,.95),
-    0 0 70px rgba(76,201,240,.85);
-}
-.w4{
-  color:#b388ff !important;
-  text-shadow:
-    0 0 14px #b388ff,
-    0 0 36px rgba(179,136,255,.95),
-    0 0 70px rgba(179,136,255,.85);
-}
-.w5{
-  color:#ffb703 !important;
-  text-shadow:
-    0 0 14px #ffb703,
-    0 0 36px rgba(255,183,3,.95),
-    0 0 70px rgba(255,183,3,.85);
-}
-
-@keyframes floatWord{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-}
-
-@keyframes gradientText{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-@keyframes textFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
-
-.hero p{opacity:.9;margin-top:14px}
-
-.btn{
-  display:inline-block;margin-top:26px;
-  background:linear-gradient(45deg,var(--gold),#b8962e);
-  color:#000;padding:14px 32px;border-radius:16px;
-  text-decoration:none;font-weight:600;
-  box-shadow:0 12px 40px rgba(212,175,55,.45);
-  transition:.35s;
-}
-.btn:hover{ transform:translateY(-6px) scale(1.06); }
-
-/* ================= CARDS ================= */
-section{max-width:1200px;margin:auto;padding:80px 18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
-.card{
-  background:linear-gradient(145deg,#151922,#0f131a);
-  border-radius:22px;padding:16px;text-align:center;
-  transition:.45s;
-  border:1px solid rgba(255,255,255,.05);
-  position:relative;
-}
-.card::after{
-  content:"";
-  position:absolute;inset:0;
-  border-radius:22px;
-  background:linear-gradient(120deg,transparent,rgba(212,175,55,.18),transparent);
-  opacity:0;transition:.45s;
-}
-.card:hover::after{opacity:1}
-.card:hover{ transform:translateY(-12px) scale(1.04); box-shadow:0 35px 80px rgba(0,0,0,.75); }
-.card img{ width:100%;height:240px;object-fit:cover; border-radius:14px;margin-bottom:10px; }
-
-/* ================= FORM ================= */
-.input{
-  width:100%;padding:12px;margin:6px 0;border-radius:12px;
-  border:1px solid #333;background:#0f141c;color:#fff;
-}
-.submit-btn{
-  width:100%;margin-top:12px;
-  background:linear-gradient(45deg,var(--gold),#b8962e);
-  padding:15px;border:none;border-radius:14px;font-weight:700;
-}
-
-/* ================= FLOAT BUTTON ================= */
-.wa{
-  position:fixed;right:22px;bottom:22px;
-  background:#25d366;color:#fff;
-  padding:18px;border-radius:50%;
-  text-decoration:none;font-size:22px;
-  animation:float 2.5s ease-in-out infinite;
-  box-shadow:0 15px 40px rgba(0,0,0,.7);
-}
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
-}
-
-
-/* ================= GOLD SHINE SWEEP ================= */
-.shine{
-  position:relative;
-  overflow:hidden;
-}
-.shine::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-120%;
-  width:60%;
-  height:100%;
-  background:linear-gradient(120deg,transparent,rgba(255,215,0,.45),transparent);
-  transform:skewX(-20deg);
-  animation:shineMove 4s infinite;
-}
-@keyframes shineMove{
-  0%{left:-120%}
-  100%{left:130%}
-}
-
-/* ================= SECTION FADE IN ================= */
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:80px 18px;
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp .9s ease forwards;
-}
-section:nth-of-type(1){animation-delay:.2s}
-section:nth-of-type(2){animation-delay:.4s}
-section:nth-of-type(3){animation-delay:.6s}
-section:nth-of-type(4){animation-delay:.8s}
-
-@keyframes fadeUp{
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* ================= BUTTON PULSE ================= */
-.btn{
-  animation:btnPulse 2.8s ease-in-out infinite;
-}
-@keyframes btnPulse{
-  0%,100%{box-shadow:0 12px 40px rgba(212,175,55,.45)}
-  50%{box-shadow:0 18px 60px rgba(212,175,55,.75)}
-}
-
+.wa{position:fixed;right:25px;bottom:25px;background:#25d366;color:#fff;padding:18px;border-radius:50%;font-size:22px;text-decoration:none;box-shadow:0 20px 60px rgba(0,0,0,.7);animation:floatText 2.5s infinite}
 </style>
 </head>
 <body>
 
 <div id="luxBg"></div>
 <div id="particles"></div>
-
-<div class="nav">
-  <div class="logo">💍 Rajasthan Royal Hindu Marriage Bureau</div>
-</div>
+<div class="nav">💍 Rajasthan Royal Hindu Marriage Bureau</div>
 
 <div class="hero">
-  <div>
-    <h1 id="typingText">
-  <span class="w1">Find</span>
-  <span class="w2">Your</span>
-  <span class="w3">Perfect</span>
-  <span class="w4">Life</span>
-  <span class="w5">Partner</span>
-</h1>
-    <p>Premium Verified Hindu Matrimony Service</p>
-    <a href="#register" class="btn">Register Now</a>
-  </div>
+ <div>
+  <h1 id="typingText">Find Your Perfect Life Partner</h1>
+  <p>India's Most Trusted Premium Hindu Matrimony Platform</p>
+  <a href="#plans" class="btn">Explore Membership</a>
+ </div>
 </div>
 
 <section>
-  <div id="profilesGrid" class="grid"></div>
+<h2 style="text-align:center;color:var(--gold);margin-bottom:40px;font-size:36px">Featured Profiles</h2>
+<div id="profilesGrid" class="grid"></div>
+<div class="load-more">
+  <button id="loadMoreBtn" class="btn">Load More Profiles</button>
+</div>
 </section>
 
-<section id="register" style="max-width:520px;margin:auto">
-  <form id="regForm">
-    <input class="input" placeholder="Full Name" required>
-    <input class="input" placeholder="Age" required>
-    <input class="input" placeholder="Mobile Number" required>
-    <button class="submit-btn">Submit Registration</button>
-  </form>
+<section id="plans">
+<h2 style="text-align:center;color:var(--gold);margin-bottom:35px">Choose Your Membership</h2>
+<div class="plan-grid">
+
+<div class="card">
+<h3>🥈 Silver</h3>
+<h2>₹1500</h2>
+<ul style="text-align:left;font-size:14px;line-height:1.8;margin:15px 0">
+<li>✔ 20 Contact Unlock</li>
+<li>✔ WhatsApp Support</li>
+<li>✔ Basic Profile Highlight</li>
+<li>✔ Weekly Match Suggestion</li>
+<li>✔ Contact View Notification</li>
+<li>✔ Interest Send Option</li>
+</ul>
+<button class="btn" onclick="selectPlan('Silver')">Select</button>
+</div>
+
+<div class="card">
+<h3>🥇 Gold</h3>
+<h2>₹2100</h2>
+<ul style="text-align:left;font-size:14px;line-height:1.8;margin:15px 0">
+<li>✔ 50 Contact Unlock</li>
+<li>✔ Priority Listing</li>
+<li>✔ Faster Match Access</li>
+<li>✔ Direct WhatsApp Connect</li>
+<li>✔ Advanced Filter Access</li>
+<li>✔ Profile Boost 7 Days</li>
+<li>✔ Contact Download Option</li>
+</ul>
+<button class="btn" onclick="selectPlan('Gold')">Select</button>
+</div>
+
+<div class="card">
+<h3>👑 Premium</h3>
+<h2>₹5100</h2>
+<ul style="text-align:left;font-size:14px;line-height:1.8;margin:15px 0">
+<li>✔ 100 Contact Unlock</li>
+<li>✔ VIP Badge Highlight</li>
+<li>✔ Personal Match Manager</li>
+<li>✔ Daily Match Recommendation</li>
+<li>✔ Unlimited Interest Send</li>
+<li>✔ Profile Top Placement</li>
+<li>✔ Direct Call Support</li>
+<li>✔ Private Gallery Access</li>
+<li>✔ Express Approval</li>
+</ul>
+<button class="btn" onclick="selectPlan('Premium')">Select</button>
+</div>
+
+</div>
+
+<div id="paymentSection">
+<h2 id="selectedPlanTitle" class="plan-title"></h2>
+<div class="qr-box"><img id="qrImage" src=""/></div>
+<div style="margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+<a id="waPayBtn" class="btn" target="_blank">Send Screenshot on WhatsApp</a>
+<button class="btn" onclick="confirmPayment()">I Have Paid</button>
+</div>
+<div id="paymentSuccess" style="display:none;margin-top:18px;color:var(--gold);font-weight:700">🎉 Congratulations! Payment Received.</div>
+</div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section>
+  <h2 style="text-align:center;color:var(--gold);margin-bottom:50px;font-size:36px">Why Choose Rajasthan Royal</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>🔐 100% Profile Verification</h3>
+      <div>Har profile manual check ke baad hi live hoti hai.</div>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Fast Matchmaking</h3>
+      <div>Smart system se jaldi suitable rishta milta hai.</div>
+    </div>
+
+    <div class="card">
+      <h3>👑 Premium Privacy</h3>
+      <div>Aapki personal details fully secure rehti hain.</div>
+    </div>
+
+    <div class="card">
+      <h3>📞 Direct Contact Option</h3>
+      <div>Membership ke baad seedha contact access.</div>
+    </div>
+
+    <div class="card">
+      <h3>🎯 Verified Families</h3>
+      <div>Sirf genuine aur serious families listed.</div>
+    </div>
+
+    <div class="card">
+      <h3>🚀 Priority Support</h3>
+      <div>Premium members ko fast WhatsApp support.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= TRUST BADGES ================= -->
+<section>
+  <h2 style="text-align:center;color:var(--gold);margin-bottom:40px;font-size:34px">Trusted by Thousands</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:25px;text-align:center">
+    <div class="card"><h2 class="counter" data-target="5000">0</h2><div>+ Happy Members</div></div>
+    <div class="card"><h2 class="counter" data-target="1200">0</h2><div>+ Successful Matches</div></div>
+    <div class="card"><h2 class="counter" data-target="98">0</h2><div>% Success Rate</div></div>
+    <div class="card"><h2 class="counter" data-target="24">0</h2><div>×7 Support</div></div>
+  </div>
+</section>
+
+<!-- ================= SUCCESS STORIES ================= -->
+<section>
+  <h2 style="text-align:center;color:var(--gold);margin-bottom:50px;font-size:36px">Success Stories</h2>
+  <div class="grid">
+    <div class="card"><img src="https://images.unsplash.com/photo-1529634896091-c63e5c8c0d8b?q=80&w=600&auto=format&fit=crop"><div>💍 Rohan & Sneha – Married 2024</div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop"><div>💍 Amit & Pooja – Engaged</div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?q=80&w=600&auto=format&fit=crop"><div>💍 Kunal & Priya – Happy Couple</div></div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section>
+  <h2 style="text-align:center;color:var(--gold);margin-bottom:40px;font-size:34px">How It Works</h2>
+  <div class="grid">
+    <div class="card"><h3>1️⃣ Create Profile</h3><div>Simple registration process.</div></div>
+    <div class="card"><h3>2️⃣ Choose Plan</h3><div>Select suitable membership.</div></div>
+    <div class="card"><h3>3️⃣ Get Matches</h3><div>Receive verified match suggestions.</div></div>
+    <div class="card"><h3>4️⃣ Connect & Meet</h3><div>Directly contact and proceed.</div></div>
+  </div>
+</section>
+
+<!-- ================= SAFETY PROMISE ================= -->
+<section>
+  <h2 style="text-align:center;color:var(--gold);margin-bottom:40px;font-size:34px">Our Safety Promise</h2>
+  <div class="grid">
+    <div class="card"><h3>🛡 ID Verification</h3><div>Mandatory identity checks.</div></div>
+    <div class="card"><h3>🔎 Manual Review</h3><div>Profiles reviewed by team.</div></div>
+    <div class="card"><h3>🚫 Fraud Protection</h3><div>Strict anti-fake policy.</div></div>
+  </div>
+</section>
+
+<!-- ================= MEDIA & APP ================= -->
+<section>
+  <h2 style="text-align:center;color:var(--gold);margin-bottom:40px;font-size:34px">Available Everywhere</h2>
+  <div class="grid">
+    <div class="card"><h3>🌐 Pan India Service</h3><div>Serving families across India.</div></div>
+    <div class="card"><h3>📱 Mobile Friendly</h3><div>Fully responsive design.</div></div>
+    <div class="card"><h3>⭐ 5 Star Rated</h3><div>Highly trusted by members.</div></div>
+  </div>
 </section>
 
 <a class="wa" href="https://wa.me/918619776286" target="_blank">💬</a>
 
 <script>
-/* ================= PARTICLES ================= */
-const particleContainer=document.getElementById('particles');
-for(let i=0;i<70;i++){
-  const p=document.createElement('div');
-  p.className='particle';
-  p.style.left=Math.random()*100+'%';
-  p.style.animationDuration=(6+Math.random()*8)+'s';
-  p.style.animationDelay=(Math.random()*6)+'s';
-  particleContainer.appendChild(p);
+// particles
+const pc=document.getElementById('particles');
+for(let i=0;i<140;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDuration=(5+Math.random()*10)+'s';pc.appendChild(p)}
+
+// typing
+const words=["Find Your Perfect Life Partner","Royal Verified Matrimony","Premium Matchmaking Experience","100% Genuine Profiles"];
+let wi=0,cj=0,del=false;const el=document.getElementById('typingText');
+function typeLoop(){const w=words[wi];el.textContent=del?w.substring(0,--cj):w.substring(0,++cj);if(!del&&cj===w.length){del=true;setTimeout(typeLoop,1500);return}if(del&&cj===0){del=false;wi=(wi+1)%words.length}setTimeout(typeLoop,del?40:80)}
+setTimeout(typeLoop,800);
+
+// ===== PLAN LOGIC =====
+let currentPlan='Free';
+function mask(num){return num.substring(0,5)+'XXXXX'}
+
+const profiles=[];
+for(let i=1;i<=120;i++){
+ profiles.push({
+  name:'User '+i,
+  age:22+i%8,
+  photo:`https://randomuser.me/api/portraits/${i%2?'men':'women'}/${(i%90)+1}.jpg`,
+  phone:'9'+Math.floor(100000000+Math.random()*900000000)
+ });
 }
 
-/* ================= TYPING ================= */
-const words=[
-  "Find Your Perfect Life Partner",
-  "Trusted Hindu Matrimony Service",
-  "Rajasthan Royal Marriage Bureau",
-  "100% Verified Profiles"
-];
-let i=0,j=0,currentWord="",isDeleting=false;
-const el=document.getElementById("typingText");
+let visibleCount=3; // show only 3 profiles initially for premium look
 
-function typeEffect(){
-  currentWord=words[i];
-  if(isDeleting){ el.textContent=currentWord.substring(0,j--); }
-  else{ el.textContent=currentWord.substring(0,j++); }
+function limit(){if(currentPlan==='Premium')return 100;if(currentPlan==='Gold')return 50;if(currentPlan==='Silver')return 20;return 0}
 
-  if(!isDeleting && j===currentWord.length+1){
-    isDeleting=true;
-    setTimeout(typeEffect,1200);
-    return;
-  }
-  if(isDeleting && j===0){
-    isDeleting=false;
-    i=(i+1)%words.length;
-  }
-  setTimeout(typeEffect,isDeleting?40:70);
+function render(){
+ const l=limit();
+ const slice=profiles.slice(0,visibleCount);
+ document.getElementById('profilesGrid').innerHTML=slice.map((p,i)=>{
+ let ph=(i<l)?p.phone:mask(p.phone);
+ if(currentPlan==='Free')ph=mask(p.phone);
+ return `<div class="card">
+<img class="profile-avatar" src="${p.photo}">
+<h3>${p.name}</h3>
+<div>Age ${p.age}</div>
+<div class="phone">📞 ${ph}</div>
+<button class="btn" style="margin-top:10px;padding:8px 16px;font-size:13px" onclick="viewInterest('${p.name}')">Send Interest ❤️</button>
+</div>`;
+ }).join('');
 }
-setTimeout(typeEffect,900);
+render();
 
-/* ================= DEMO CARDS ================= */
-let data=[
- {Name:"Rajesh Sharma",Age:"27",Photo:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop"},
- {Name:"Pooja Verma",Age:"24",Photo:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop"},
- {Name:"Amit Singh",Age:"29",Photo:"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop"}
-];
+// load more
+const loadBtn=document.getElementById('loadMoreBtn');
+if(loadBtn){
+ loadBtn.onclick=()=>{
+   visibleCount+=12;
+   if(visibleCount>=profiles.length) loadBtn.style.display='none';
+   render();
+ };
+}
 
-document.getElementById("profilesGrid").innerHTML=
-data.map(p=>`<div class="card"><img src="${p.Photo}"><h3>${p.Name}</h3><div>Age: ${p.Age}</div></div>`).join("");
+function selectPlan(plan){currentPlan=plan;showPayment(plan);render();}
 
-/* ================= THANK YOU ================= */
-document.getElementById("regForm").onsubmit=function(e){
- e.preventDefault();
- this.innerHTML="<h2 style='color:#d4af37;text-align:center'>✅ Thank You! Registration Received</h2>";
-};
+function showPayment(plan){
+ const price={Silver:1500,Gold:2100,Premium:5100}[plan];
+ document.getElementById('selectedPlanTitle').innerText=plan+" Plan - ₹"+price;
+ document.getElementById('qrImage').src=`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Payment%20for%20${plan}`;
+ const msg=encodeURIComponent(`Hello, I paid for ${plan} Plan.`);
+ document.getElementById('waPayBtn').href=`https://wa.me/918619776286?text=${msg}`;
+ document.getElementById('paymentSection').style.display='block';
+ document.getElementById('paymentSection').scrollIntoView({behavior:'smooth'});
+}
+
+function confirmPayment(){document.getElementById('paymentSuccess').style.display='block'}
+
+// ===== NEW PREMIUM FEATURES =====
+
+// interest popup
+function viewInterest(name){
+ alert('Interest sent to '+name+' ❤️');
+}
+
+// animated counters
+const counters=document.querySelectorAll('.counter');
+counters.forEach(c=>{
+ const target=+c.getAttribute('data-target');
+ let count=0;
+ const step=Math.ceil(target/60);
+ const run=()=>{
+   count+=step;
+   if(count<target){c.innerText=count;requestAnimationFrame(run);}else{c.innerText=target;}
+ };
+ run();
+});
+
+// floating live activity toast
+const toast=document.createElement('div');
+toast.innerHTML='🔔 Someone just joined Rajasthan Royal!';
+toast.style.position='fixed';
+toast.style.left='20px';
+toast.style.bottom='20px';
+toast.style.background='#111';
+toast.style.color='#fff';
+toast.style.padding='10px 14px';
+toast.style.borderRadius='10px';
+toast.style.fontSize='13px';
+toast.style.boxShadow='0 20px 50px rgba(0,0,0,.5)';
+toast.style.opacity='0';
+toast.style.transition='all .4s ease';
+document.body.appendChild(toast);
+
+setInterval(()=>{
+ toast.style.opacity='1';
+ toast.style.transform='translateY(-10px)';
+ setTimeout(()=>{
+   toast.style.opacity='0';
+   toast.style.transform='translateY(0)';
+ },2500);
+},9000);
 </script>
-
-
-
-<!-- ================= ABOUT SECTION ================= -->
-<section>
-  <h2 style="text-align:center;font-size:32px;margin-bottom:20px;color:#d4af37">Why Choose Us</h2>
-  <p style="max-width:900px;margin:0 auto;text-align:center;opacity:.85;line-height:1.7">
-    Rajasthan Royal Hindu Marriage Bureau provides trusted, verified and family-oriented matrimonial services.
-    We focus on genuine profiles, personal guidance and strong family values to help you find the perfect life partner.
-  </p>
-</section>
-
-<!-- ================= FEATURES ================= -->
-<section>
-  <h2 style="text-align:center;font-size:30px;margin-bottom:30px;color:#d4af37">Our Premium Services</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px">
-    <div class="card"><h3>✔ Verified Profiles</h3><p>100% genuine and family verified members.</p></div>
-    <div class="card"><h3>💬 Direct WhatsApp Support</h3><p>Instant communication and fast response.</p></div>
-    <div class="card"><h3>👑 Premium Matching</h3><p>Handpicked matches based on compatibility.</p></div>
-    <div class="card"><h3>🔐 Privacy & Security</h3><p>Your information remains safe and confidential.</p></div>
-  </div>
-</section>
-
-<!-- ================= TESTIMONIALS ================= -->
-<section>
-  <h2 style="text-align:center;font-size:30px;margin-bottom:30px;color:#d4af37">Happy Families</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px">
-    <div class="card">
-      <p>"Thanks to Rajasthan Royal Marriage Bureau, our daughter found a wonderful life partner."</p>
-      <strong>- Sharma Family</strong>
-    </div>
-    <div class="card">
-      <p>"Professional service and genuine profiles. Highly recommended!"</p>
-      <strong>- Singh Family</strong>
-    </div>
-    <div class="card">
-      <p>"Very supportive team and quick responses on WhatsApp."</p>
-      <strong>- Verma Family</strong>
-    </div>
-  </div>
-</section>
-
-<!-- ================= GALLERY ================= -->
-<section>
-  <h2 style="text-align:center;font-size:30px;margin-bottom:30px;color:#d4af37">Wedding Moments</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px">
-    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop" style="width:100%;border-radius:18px;box-shadow:0 25px 60px rgba(0,0,0,.6);transition:.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" style="width:100%;border-radius:18px;box-shadow:0 25px 60px rgba(0,0,0,.6);transition:.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    <img src="https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?q=80&w=800&auto=format&fit=crop" style="width:100%;border-radius:18px;box-shadow:0 25px 60px rgba(0,0,0,.6);transition:.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=800&auto=format&fit=crop" style="width:100%;border-radius:18px;box-shadow:0 25px 60px rgba(0,0,0,.6);transition:.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-  </div>
-</section>
-
-<!-- ================= FOOTER EXPANDED ================= -->
-<footer style="margin-top:60px;padding:40px 20px;text-align:center;background:#05070a;border-top:1px solid rgba(255,255,255,.08)">
-  <h3 style="color:#d4af37;margin-bottom:10px">Rajasthan Royal Hindu Marriage Bureau</h3>
-  <p>📞 8619776286 | 📍 Rajasthan, India</p>
-  <p style="margin-top:15px;opacity:.7">© 2026 All Rights Reserved</p>
-</footer>
 
 </body>
 </html>
